@@ -148,10 +148,8 @@ function add1 (elem) {
   else {
     let currentScore = elem.children[2].innerHTML;
     currentScore = Number.parseInt(currentScore);
-    elem.children[2].innerHTML = currentScore + 1
-    elem.children[3].innerHTML = (currentScore - elem.children[1]);
+    elem.children[2].innerHTML = currentScore + 1;
   }
-        function(){total(1);};
 }
 
 function subtract1 (elem) {
@@ -159,11 +157,8 @@ function subtract1 (elem) {
   else {
     let currentScore = elem.children[2].innerHTML;
     currentScore = Number.parseInt(currentScore);
-    elem.children[2].innerHTML = currentScore - 1
-    elem.children[3].innerHTML = (currentScore - elem.children[1]);
-
+    elem.children[2].innerHTML = currentScore - 1;
   }
-      function(){total(-1);};
 }
 function clear (elem) {
   elem.children[2].innerHTML == "-";
