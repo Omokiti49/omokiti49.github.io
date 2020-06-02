@@ -34,8 +34,7 @@ var elem17
   = document.getElementById("17");
 var elem18
   = document.getElementById("18");
-var elem19
-  = document.getElemetnById("19")
+
 elem.children[4].children[0].onclick 
   = function(){add1(elem);};
 elem.children[4].children[1].onclick 
@@ -152,6 +151,7 @@ function add1 (elem) {
     elem.children[2].innerHTML = currentScore + 1
     elem.children[3].innerHTML = (currentScore - elem.children[1]);
   }
+        function(){total(1);};
 }
 
 function subtract1 (elem) {
@@ -161,13 +161,16 @@ function subtract1 (elem) {
     currentScore = Number.parseInt(currentScore);
     elem.children[2].innerHTML = currentScore - 1
     elem.children[3].innerHTML = (currentScore - elem.children[1]);
-    function(){total(-1);};
+
   }
+      function(){total(-1);};
+}
 function clear (elem) {
   elem.children[2].innerHTML == "-";
-  }
 }
 function total (num) {
-  
+  var elem19
+  = document.getElemetnById("19")
+    elem19.children[2] + num;
   }
 }
