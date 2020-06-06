@@ -47,7 +47,7 @@ function resetAllClubDistances() {
 	var str = JSON.stringify(clubs);
 	localStorage.setItem("clubs", str);
 	// and refresh screen
-	window.location.href = "clubDistanceList.html"; 
+	window.location.href = "assignment04.html"; 
 }
 
 // append one row to HTML table for each row in "clubs" array
