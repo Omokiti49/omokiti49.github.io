@@ -94,7 +94,7 @@ function displayclubDistanceEntryForm(c) {
 
 // replace the current "clubs" array with the previous one
 function undoLastShot() {
-        // your code here !
+        localStorage.getItem("clubs")
 }
 
 // navigate to "About" screen
