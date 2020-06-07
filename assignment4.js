@@ -186,5 +186,5 @@ function cancelClub() {
 
 // navigate to club distance list screen
 function displayClubEntry() {
-	window.location.href = "clubDistanceEntry.html"; 
+	window.location.href = "clubEntry.html"; 
 }
