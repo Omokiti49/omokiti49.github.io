@@ -43,7 +43,12 @@
 		{
 			alert('You can only have 14 clubs')
 			cancelClub();
-		}else {	
+		}else if(clubs.length < 14){
+			for(var i = 0; i < clubs.length; i++){
+				if (clubs[i][3] == null){
+					clubs[i][0, "", "",   0, 0, 0, 0, 0.0,   0,   0]
+				}
+			}
 		window.location.href = "assignment04.html";
 		}
 	}
