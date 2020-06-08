@@ -35,6 +35,25 @@ var elem17
 var elem18
   = document.getElementById("18");
 
+console.log(elem.children[4].children[0]);
+console.log(elem2.children[4].children[0]);
+console.log(elem3.children[4].children[0]);
+console.log(elem4.children[4].children[0]);
+console.log(elem5.children[4].children[0]);
+console.log(elem6.children[4].children[0]);
+console.log(elem7.children[4].children[0]);
+console.log(elem8.children[4].children[0]);
+console.log(elem9.children[4].children[0]);
+console.log(elem10.children[4].children[0]);
+console.log(elem11.children[4].children[0]);
+console.log(elem12.children[4].children[0]);
+console.log(elem13.children[4].children[0]);
+console.log(elem14.children[4].children[0]);
+console.log(elem15.children[4].children[0]);
+console.log(elem16.children[4].children[0]);
+console.log(elem17.children[4].children[0]);
+console.log(elem18.children[4].children[0]);
+
 elem.children[4].children[0].onclick 
   = function(){add1(elem);};
 elem.children[4].children[1].onclick 
@@ -48,7 +67,7 @@ elem2.children[4].children[1].onclick
 elem2.children[4].children[2].onclick 
   = function(){clear(elem2);};
 elem3.children[4].children[0].onclick 
-  = function(){add1(elem2);};
+  = function(){add1(elem3);};
 elem3.children[4].children[1].onclick 
   = function(){subtract1(elem3);};
 elem3.children[4].children[2].onclick 
