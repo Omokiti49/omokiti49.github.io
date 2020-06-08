@@ -180,7 +180,7 @@ function updateStats(shotDistance=0) {
 		var str = JSON.stringify(clubs);
 		localStorage.setItem("clubs", str);
 		// return to list screen
-		window.location.href = "clubDistanceList.html"; 
+		window.location.href = "assignment4.html"; 
 	}
 }
 
