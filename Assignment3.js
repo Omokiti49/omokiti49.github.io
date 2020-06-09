@@ -1,4 +1,5 @@
-  rounds = [
+function resetScores(){
+rounds = [
     [Date, Hole 1, Hole 2, Hole 3, Score], 
 		[ 1, 0, 0, 0, 1],
 		[ 2, 0, 0, 0, 1],
@@ -14,6 +15,17 @@
 	// store the array in local storage
 	var str = JSON.stringify(clubs);
 	localStorage.setItem("clubs", str);
+}
+function loadRounds() {
+	if (localStorage.getItem("scores")) {
+		clubs = JSON.parse(localStorage.getItem("scores"));
+	}
+	else {
+		resetAllClubDistances();
+		clubs = JSON.parse(localStorage.getItem("scores"));
+	}
+	return scores;
+}
 var elem
   = document.getElementById("1");
 var elem2
