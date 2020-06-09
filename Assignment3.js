@@ -13,9 +13,9 @@ rounds = [
 		[ 10, 0, 0, 0, 1],
 	];
 	// store the array in local storage
-	var str = JSON.stringify(clubs);
-	localStorage.setItem("clubs", str);
-	window.location.href="golfScorecards";
+	var str = JSON.stringify(scores);
+	localStorage.setItem("scores", str);
+	window.location.href="golfScorecards.html";
 }
 function appendTableRows() {
 	// select the HTML table 
@@ -60,6 +60,35 @@ function loadRounds() {
 		clubs = JSON.parse(localStorage.getItem("scores"));
 	}
 	return scores;
+}
+function updateStats(scoreInput) {
+	// shotDistance can be user-entered by fast-entry button or by typed input
+	// if shotDistance==0 then shotDistance was entered by typed input,
+	// so must pull shotValue from getElementById('clubVal')
+	//if(shotDistance==0)
+		shotDistance = parseInt(document.getElementById('clubVal').value);
+	//if(parseInt(shotDistance) > 0) {
+		// save current clubs array for "Undo" functionality
+		//var str = JSON.stringify(clubs);
+		//localStorage.setItem("clubsUndo", str);
+		// update average
+		currentAverage = scores[scoresRow][3];
+		currentNumScores = scores[scoresRow][6];
+		newAverage = (currentAverage * currentNumScores + scoreInput) 
+			/ (currentNumScores + 1);
+		clubs[clubRow][3] = newAverage;
+		// update shot count
+		clubs[clubRow][6] += 1;
+		// update min
+		if (clubs[clubRow][4]==0 || shotDistance < clubs[clubRow][4]) clubs[clubRow][4] = scoreInput;
+		// update max
+		if (clubs[clubRow][5]==0 || shotDistance > clubs[clubRow][5]) clubs[clubRow][5] = scoreInput;
+		// save updated stats in local storage
+		var str = JSON.stringify(clubs);
+		localStorage.setItem("clubs", str);
+		// return to list screen
+		window.location.href = "golfScorecard.html"; 
+	}
 }
 var elem
   = document.getElementById("1");
