@@ -148,7 +148,7 @@ function appendTapEntryButtons() {
 }
 
 // update distances based on user-entered value, "shotDistance"
-function updateStats(shotDistance=0) {
+function updateStats(shotDistance) {
 	// shotDistance can be user-entered by fast-entry button or by typed input
 	// if shotDistance==0 then shotDistance was entered by typed input,
 	// so must pull shotValue from getElementById('clubVal')
