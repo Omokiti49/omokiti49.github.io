@@ -17,6 +17,40 @@ rounds = [
 	localStorage.setItem("clubs", str);
 	window.location.href="golfScorecards";
 }
+function appendTableRows() {
+	// select the HTML table 
+	var tbl = document.getElementById('scoreTable'); 
+	// append one row to HTML table for each row in "clubs" array
+	for (var i = 0; i < clubs.length; i++) {
+		// create an empty row
+		var row = tbl.insertRow(i+1); // skip first row (column headings)
+		// create an empty cell for each column to appear in HTML table
+		var cell0 = row.insertCell(0); // clubAbbrev
+		var cell1 = row.insertCell(1); // avgDist
+		var cell2 = row.insertCell(2); // minDist
+		var cell3 = row.insertCell(3); // maxDist
+		var cell4 = row.insertCell(4); // numOfShots
+		var cell5 = row.insertCell(5); // ("+" button)
+		var cell6 = row.insertCell(6); // clubName
+		// right align only the cells that need to be right aligned
+		cell0.className = "cmn_hidden"; // clubAbbrev
+		cell1.className = "cmn_alignRight cmn_fullHeight"; // avgDist
+		cell2.className = "cmn_alignRight cmn_hidden"; // minDist
+		cell3.className = "cmn_alignRight cmn_fullHeight"; // maxDist
+		cell4.className = "cmn_alignRight cmn_hidden"; // numOfShots
+		cell5.className = ""; // ("+" button)
+		cell6.className = "cmn_fullHeight";
+		// populate HTML table with data from "clubs" array
+		cell0.innerHTML = clubs[i][1]; // clubAbbrev
+		cell1.innerHTML = Math.round(clubs[i][3]); // avgDist
+		cell2.innerHTML = Math.round(clubs[i][4]); // minDist
+		cell3.innerHTML = Math.round(clubs[i][5]); // maxDist
+		cell4.innerHTML = Math.round(clubs[i][6]); // numOfShots
+		cell5.innerHTML = "<button class='btn btn-success cmn_noPadding cmn_fullHeight' onclick='displayclubDistanceEntryForm(" + i + ");'>&nbsp;&nbsp;+&nbsp;&nbsp;</button>";
+		cell6.innerHTML = clubs[i][2]; // clubName
+		// cell6.innerHTML = clubs[i][2] + ", " + clubs[i][7] + "&deg;"; 
+	}
+}
 function loadRounds() {
 	if (localStorage.getItem("scores")) {
 		clubs = JSON.parse(localStorage.getItem("scores"));
