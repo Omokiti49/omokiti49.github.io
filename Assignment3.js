@@ -10,6 +10,7 @@ rounds = [
 		[ 8, 0, 0, 0, 1],
 		[ 9, 0, 0, 0, 1],
 		[ 10, 0, 0, 0, 1],
+		[ 11, 0, 0, 0, 0]
 	];
 	// store the array in local storage
 	var str = JSON.stringify(scores);
@@ -20,7 +21,7 @@ function appendTableRows() {
 	// select the HTML table 
 	var tbl = document.getElementById('scoreTable'); 
 	// append one row to HTML table for each row in "clubs" array
-	for (var i = 0; i < clubs.length; i++) {
+	for (var i = 0; i < scores.length; i++) {
 		// create an empty row
 		var row = tbl.insertRow(i+1); // skip first row (column headings)
 		// create an empty cell for each column to appear in HTML table
@@ -29,22 +30,18 @@ function appendTableRows() {
 		var cell2 = row.insertCell(2); // minDist
 		var cell3 = row.insertCell(3); // maxDist
 		var cell4 = row.insertCell(4); // numOfShots
-		var cell5 = row.insertCell(5); // ("+" button)
-		var cell6 = row.insertCell(6); // clubName
 		// right align only the cells that need to be right aligned
-		cell0.className = "cmn_hidden"; // clubAbbrev
-		cell1.className = "cmn_alignRight cmn_fullHeight"; // avgDist
-		cell2.className = "cmn_alignRight cmn_hidden"; // minDist
-		cell3.className = "cmn_alignRight cmn_fullHeight"; // maxDist
-		cell4.className = "cmn_alignRight cmn_hidden"; // numOfShots
-		cell5.className = ""; // ("+" button)
-		cell6.className = "cmn_fullHeight";
+		//cell0.className = "cmn_hidden"; // clubAbbrev
+		//cell1.className = "cmn_alignRight cmn_fullHeight"; // avgDist
+		//cell2.className = "cmn_alignRight cmn_hidden"; // minDist
+		//cell3.className = "cmn_alignRight cmn_fullHeight"; // maxDist
+		//cell4.className = "cmn_alignRight cmn_hidden"; // numOfShots
 		// populate HTML table with data from "clubs" array
 		cell0.innerHTML = clubs[i][0]; // clubAbbrev
-		cell1.innerHTML = Math.round(clubs[i][1]); // avgDist
-		cell2.innerHTML = Math.round(clubs[i][2]); // minDist
-		cell3.innerHTML = Math.round(clubs[i][3]); // maxDist
-		cell4.innerHTML = Math.round(clubs[i][4]); // numOfShots
+		cell1.innerHTML = Math.round(clubs[i][1]); // hole1
+		cell2.innerHTML = Math.round(clubs[i][2]); // hole2
+		cell3.innerHTML = Math.round(clubs[i][3]); // hole3
+		cell4.innerHTML = Math.round(clubs[i][4]); // score
 		// cell6.innerHTML = clubs[i][2] + ", " + clubs[i][7] + "&deg;"; 
 	}
 }
