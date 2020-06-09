@@ -15,6 +15,7 @@ rounds = [
 	// store the array in local storage
 	var str = JSON.stringify(clubs);
 	localStorage.setItem("clubs", str);
+	window.location.href="golfScorecards";
 }
 function loadRounds() {
 	if (localStorage.getItem("scores")) {
