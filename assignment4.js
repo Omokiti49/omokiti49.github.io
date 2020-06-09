@@ -189,6 +189,6 @@ function cancelClub() {
 function displayClubEntry() {
 	window.location.href = "clubEntry.html"; 
 }
-function displayScores(){
-	window.location.href = "golfScoreCards.html";
+function displayScores() {
+	window.location.href = "golfScorecards.html";
 }
