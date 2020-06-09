@@ -76,16 +76,16 @@ function updateStats(scoreInput) {
 		currentNumScores = scores[scoresRow][6];
 		newAverage = (currentAverage * currentNumScores + scoreInput) 
 			/ (currentNumScores + 1);
-		clubs[clubRow][3] = newAverage;
+		scores[scoresRow][3] = newAverage;
 		// update shot count
-		clubs[clubRow][6] += 1;
+		scores[scoresRow][6] += 1;
 		// update min
-		if (clubs[clubRow][4]==0 || shotDistance < clubs[clubRow][4]) clubs[clubRow][4] = scoreInput;
+		if (scores[scoresRow][4]==0 || shotDistance < scores[scoresRow][4]) scores[scoresRow][4] = scoreInput;
 		// update max
-		if (clubs[clubRow][5]==0 || shotDistance > clubs[clubRow][5]) clubs[clubRow][5] = scoreInput;
+		if (scores[scoresRow][5]==0 || shotDistance > scores[scoresRow][5]) scores[scoresRow][5] = scoreInput;
 		// save updated stats in local storage
-		var str = JSON.stringify(clubs);
-		localStorage.setItem("clubs", str);
+		var str = JSON.stringify(scores);
+		localStorage.setItem("scores", str);
 		// return to list screen
 		window.location.href = "golfScorecard.html"; 
 	}
