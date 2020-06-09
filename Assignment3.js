@@ -41,13 +41,11 @@ function appendTableRows() {
 		cell5.className = ""; // ("+" button)
 		cell6.className = "cmn_fullHeight";
 		// populate HTML table with data from "clubs" array
-		cell0.innerHTML = clubs[i][1]; // clubAbbrev
-		cell1.innerHTML = Math.round(clubs[i][3]); // avgDist
-		cell2.innerHTML = Math.round(clubs[i][4]); // minDist
-		cell3.innerHTML = Math.round(clubs[i][5]); // maxDist
-		cell4.innerHTML = Math.round(clubs[i][6]); // numOfShots
-		cell5.innerHTML = "<button class='btn btn-success cmn_noPadding cmn_fullHeight' onclick='displayclubDistanceEntryForm(" + i + ");'>&nbsp;&nbsp;+&nbsp;&nbsp;</button>";
-		cell6.innerHTML = clubs[i][2]; // clubName
+		cell0.innerHTML = clubs[i][0]; // clubAbbrev
+		cell1.innerHTML = Math.round(clubs[i][1]); // avgDist
+		cell2.innerHTML = Math.round(clubs[i][2]); // minDist
+		cell3.innerHTML = Math.round(clubs[i][3]); // maxDist
+		cell4.innerHTML = Math.round(clubs[i][4]); // numOfShots
 		// cell6.innerHTML = clubs[i][2] + ", " + clubs[i][7] + "&deg;"; 
 	}
 }
