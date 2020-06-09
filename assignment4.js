@@ -95,8 +95,9 @@ function displayclubDistanceEntryForm(c) {
 // replace the current "clubs" array with the previous one
 function undoLastShot() {
 	//localStorage.getItem("clubsUndo", str);	
-	var str = JSON.stringify(clubs);
-	localStorage.setItem("clubsUndo", str)
+	//For some reason this code doesn't allow use of the window function below, despite it being a code of one above that does work.
+	//var str = JSON.stringify(clubs);
+	//localStorage.setItem("clubsUndo", str)
 	window.location.href="assignment04.html";
 }
 
