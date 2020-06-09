@@ -60,7 +60,7 @@ function updateStats(scoreInput) {
 	// if shotDistance==0 then shotDistance was entered by typed input,
 	// so must pull shotValue from getElementById('clubVal')
 	//if(shotDistance==0)
-		shotDistance = parseInt(document.getElementById('clubVal').value);
+		shotDistance = parseInt(document.getElementById('scoreVal').value);
 	//if(parseInt(shotDistance) > 0) {
 		// save current clubs array for "Undo" functionality
 		//var str = JSON.stringify(clubs);
