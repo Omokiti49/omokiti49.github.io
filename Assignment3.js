@@ -1,3 +1,19 @@
+  rounds = [
+    [Date, Hole 1, Hole 2, Hole 3, Score], 
+		[ 1, 0, 0, 0, 1],
+		[ 2, 0, 0, 0, 1],
+		[ 3, 0, 0, 0, 1],
+		[ 4, 0, 0, 0, 1],
+		[ 5, 0, 0, 0, 1],
+		[ 6, 0, 0, 0, 1],
+		[ 7, 0, 0, 0, 1],
+		[ 8, 0, 0, 0, 1],
+		[ 9, 0, 0, 0, 1],
+		[ 10, 0, 0, 0, 1],
+	];
+	// store the array in local storage
+	var str = JSON.stringify(clubs);
+	localStorage.setItem("clubs", str);
 var elem
   = document.getElementById("1");
 var elem2
