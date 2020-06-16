@@ -1,3 +1,13 @@
+function loadRounds() {
+	if (localStorage.getItem("rounds")) {
+		clubs = JSON.parse(localStorage.getItem("rounds"));
+	}
+	else {
+		resetAllClubDistances();
+		rounds = JSON.parse(localStorage.getItem("rounds"));
+	}
+	return rounds;
+}
 function resetScores(){
 rounds = [
     [round1date, hole1score, hole2score, ...],
