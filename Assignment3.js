@@ -1,6 +1,6 @@
 function loadRounds() {
 	if (localStorage.getItem("rounds")) {
-		clubs = JSON.parse(localStorage.getItem("rounds"));
+		rounds = JSON.parse(localStorage.getItem("rounds"));
 	}
 	else {
 		resetAllClubDistances();
@@ -41,17 +41,17 @@ function appendTableRows() {
 		var cell3 = row.insertCell(3); // maxDist
 		var cell4 = row.insertCell(4); // numOfShots
 		// right align only the cells that need to be right aligned
-		//cell0.className = "cmn_hidden"; // clubAbbrev
-		//cell1.className = "cmn_alignRight cmn_fullHeight"; // avgDist
-		//cell2.className = "cmn_alignRight cmn_hidden"; // minDist
-		//cell3.className = "cmn_alignRight cmn_fullHeight"; // maxDist
-		//cell4.className = "cmn_alignRight cmn_hidden"; // numOfShots
+		cell0.className = "gsc_hidden"; // clubAbbrev
+		cell1.className = "gsc_alignRight cmn_fullHeight"; // avgDist
+		cell2.className = "gsc_alignRight cmn_hidden"; // minDist
+		cell3.className = "gsc_alignRight cmn_fullHeight"; // maxDist
+		cell4.className = "gsc_alignRight cmn_hidden"; // numOfShots
 		// populate HTML table with data from "clubs" array
 		cell0.innerHTML = clubs[i][0]; // clubAbbrev
-		cell1.innerHTML = Math.round(clubs[i][1]); // hole1
-		cell2.innerHTML = Math.round(clubs[i][2]); // hole2
-		cell3.innerHTML = Math.round(clubs[i][3]); // hole3
-		cell4.innerHTML = Math.round(clubs[i][4]); // score
+		cell1.innerHTML = Math.round(rounds[i][1]); // hole1
+		cell2.innerHTML = Math.round(rounds[i][2]); // hole2
+		cell3.innerHTML = Math.round(rounds[i][3]); // hole3
+		cell4.innerHTML = Math.round(rounds[i][4]); // score
 		// cell6.innerHTML = clubs[i][2] + ", " + clubs[i][7] + "&deg;"; 
 	}
 }
