@@ -21,11 +21,11 @@ rounds = [
 	window.location.href="golfScorecards.html";
 }
 function populateStatsTable() {
-	document.getElementById('cmn_club').innerHTML = '<strong>' + scores[scoresRow][1] + '</strong>'; 
-	document.getElementById('cmn_min').innerHTML = Math.round(scores[scoresRow][4]); 
-	document.getElementById('cmn_avg').innerHTML = '<strong>' + Math.round(scores[scoresRow][3]) + '</strong>'; 
-	document.getElementById('cmn_max').innerHTML = Math.round(scores[scoresRow][5]); 
-	document.getElementById('cmn_num').innerHTML = Math.round(scores[scoresRow][6]);  
+	document.getElementById('gsc_club').innerHTML = '<strong>' + scores[scoresRow][1] + '</strong>'; 
+	document.getElementById('gsc_min').innerHTML = Math.round(scores[scoresRow][4]); 
+	document.getElementById('gsc_avg').innerHTML = '<strong>' + Math.round(scores[scoresRow][3]) + '</strong>'; 
+	document.getElementById('gsc_max').innerHTML = Math.round(scores[scoresRow][5]); 
+	document.getElementById('gsc_num').innerHTML = Math.round(scores[scoresRow][6]);  
 }
 function appendTableRows() {
 	// select the HTML table 
