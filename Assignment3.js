@@ -84,7 +84,7 @@ function updateStats(scoreInput) {
 		window.location.href = "golfScorecard.html"; 
 	}
 }
-var elem
+/*var elem
   = document.getElementById("1");
 var elem2
   = document.getElementById("2");
@@ -248,7 +248,7 @@ elem18.children[4].children[1].onclick
   = function(){subtract1(elem18);};
 elem18.children[4].children[2].onclick 
   = function(){clear(elem18);};
-
+*/
 function add1 (elem) {
   if(elem.children[2].innerHTML == "-") elem.children[2].innerHTML = "1";
   else {
