@@ -1,17 +1,10 @@
 function resetScores(){
 rounds = [
-		[ 1, 0, 0, 0, 1],
-		[ 2, 0, 0, 0, 1],
-		[ 3, 0, 0, 0, 1],
-		[ 4, 0, 0, 0, 1],
-		[ 5, 0, 0, 0, 1],
-		[ 6, 0, 0, 0, 1],
-		[ 7, 0, 0, 0, 1],
-		[ 8, 0, 0, 0, 1],
-		[ 9, 0, 0, 0, 1],
-		[ 10, 0, 0, 0, 1],
-		[ 11, 0, 0, 0, 0]
-	];
+    [round1date, hole1score, hole2score, ...],
+    [round2date, hole1score, hole2score, ...],
+    [round3date, hole1score, hole2score, ...]
+    ,...
+]
 	// store the array in local storage
 	var str = JSON.stringify(scores);
 	localStorage.setItem("scores", str);
