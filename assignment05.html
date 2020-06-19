@@ -1,17 +1,60 @@
-<!DOCTYPE html>
 <html>
+ <head>
+ </head>
+ <body>
+   <a href="../menu.html">Back to Menu</a><br />
+   <h2>Dragon Canvas element</h2>
+   <canvas id="myChart"></canvas>
 
-  <body>
-    Hello world
-    <h2>Canvas element (for Chart.js)</h2>
-    <canvas id="myChart"></canvas>
-    <div>
-      <h2>AJAX example: Covid19api</h2><div id="demo">
-      <p>Click button to load content.</p> 
+   <h2>AJAX example</h2>
+   <div id="demo">
+     <p>Content to change</p>    
     </div>
-    <button type="button" onclick="loadContent()">Load Content</button>
-      <script src="Assignment05.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+    <button type="button" onclick="loadDoc()">Change Content</button>
 
-  </body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+	
+	<script>
+	let URL = "https://api.covid19api.com/summary";
+    let covidJson;
+
+	// AJAX
+	// modified from: https://www.w3schools.com/js/js_ajax_intro.asp
+	function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+		 covidJson = this.responseText;
+		 covidJson = JSON.parse(covidJson);
+		 console.log(covidJson.Global.NewConfirmed);
+		 document.getElementById("demo").innerHTML = this.responseText;
+		}
+	  };
+	  xhttp.open("GET", URL, true);
+	  xhttp.send();
+	}
+
+	// Chart.js
+	// verbatim from https://www.sitepoint.com/introduction-chart-js-2-0-six-examples/
+	var ctx = document.getElementById('myChart').getContext('2d');
+	var myChart = new Chart(ctx, {
+	  type: 'line',
+	  data: {
+		labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+		datasets: [{
+		  label: 'apples',
+		  data: [12, 19, 3, 17, 6, 3, 7],
+		  backgroundColor: "rgba(153,255,51,0.4)"
+		}, {
+		  label: 'oranges',
+		  data: [2, 29, 5, 5, 2, 3, 10],
+		  backgroundColor: "rgba(255,153,0,0.4)"
+		}]
+	  }
+	});
+
+<!-- This is a comment. -->
+	</script>
+
+ </body>
 </html>
