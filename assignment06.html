@@ -1,106 +1,168 @@
  <!doctype html>
-<html lang="en">
-	<head>
-		<title>College Debt Estimator</title>
-		<!-- bootstrap 4 -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-		<!-- custom css -->
-		<style>
-		td, th, td input {text-align: right;}
-      #loan_table {background-color: pink;}
-		</style>
-	</head>
-	<body onload="loadDoc();">
-		<div class="container">
-			<form>
-				<h1>College Debt Estimator</h1>
-				<br />
-				<div class="row">      
-					<div class="col-lg-6">
-						<div class="form-group">
-						
-							<h2>Loans</h2>
+<html lang="en"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>as06</title>
 
-							<table class="table" id="loan_table">
-								<tr>
-									<th>Year</th>
-									<th>Amount</th>
-									<th>Int Rate<a target="_blank" href="https://studentaid.ed.gov/sa/types/loans/interest-rates"><sup>1</sup></a></th>
-									<th>YE Bal</th>
-								</tr>
-								<tr>
-									<td><input type="text" class="form-control" placeholder="2020" id="loan_year01" /></td>
-									<td><input type="text" class="form-control" placeholder="$10,000.00" id="loan_amt01" /></td>
-									<td><input type="text" class="form-control" placeholder="0.0453" id="loan_int01" /></td>
-									<td><span id="loan_bal01">$10,453.00</span></td>
-								</tr>
-								<tr>
-									<td><input type="text" class="form-control" placeholder="2021" id="loan_year02" /></td>
-									<td><input type="text" class="form-control" placeholder="$10,000.00" id="loan_amt02" /></td>
-									<td><input type="text" class="form-control" placeholder="0.0453" id="loan_int02" /></td>
-									<td><span id="loan_bal02">$21,379.52</span></td>
-								</tr>
-								<tr>
-									<td><input type="text" class="form-control" placeholder="2022" id="loan_year03" /></td>
-									<td><input type="text" class="form-control" placeholder="$10,000.00" id="loan_amt03" /></td>
-									<td><input type="text" class="form-control" placeholder="0.0453" id="loan_int03" /></td>
-									<td><span id="loan_bal03">$32,801.01</span></td>
-								</tr>
-								<tr>
-									<td><input type="text" class="form-control" placeholder="2023" id="loan_year04" /></td>
-									<td><input type="text" class="form-control" placeholder="$10,000.00" id="loan_amt04" /></td>
-									<td><input type="text" class="form-control" placeholder="0.0453" id="loan_int04" /></td>
-									<td><span id="loan_bal04">$44,739.90</span></td>
-								</tr>
-								<tr>
-									<td><input type="text" class="form-control" placeholder="2024" id="loan_year05" /></td>
-									<td><input type="text" class="form-control" placeholder="$10,000.00" id="loan_amt05" /></td>
-									<td><input type="text" class="form-control" placeholder="0.0453" id="loan_int05" /></td>
-									<td><span id="loan_bal05">$57,219.62</span></td>
-								</tr>
-								<tr>
-									<td colspan="3">Interest accrued while attending college:</td>
-									<td><span id="loan_int_accrued">$7,219.62</span></td>
-								</tr>
-							</table>
-							<br />
-							<button type="button" class="btn btn-primary" onclick="processForm();">Re-calculate</button> 
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="form-group">
-						
-							<h2>Payments</h2>
-							
-							<table class="table">
-								<tr>
-									<th>Year</th>
-									<th>Payments</th>
-									<th>Int Amt</th>
-									<th>YE Bal</th>
-								</tr>
-								<tr>
-									<td><span id="pmt_year01">2025</span></td>
-									<td><span id="pmt_amt01">$6,500.00</span></td>
-									<td><span id="pmt_int01">$2,297.60</span></td>
-									<td><span id="pmt_bal01">$53,017.22</span></td>
-								</tr>
-								
-							</table>
-						</div>
-					</div>
+    <title>College Debt Estimator</title>
 
-				</div>
+    <!-- bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-			</form>
+    <!-- custom css -->
+    <style>
+        td, th, td input {text-align: right;}
+    #loan_table {background-color: pink;}
+    </style>
 
-		</div>
-    
-    <!--- jquery 3.4.1 -->
-		<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-    <script src="Assignment06.js"></script>
-	</body>
-</html>
+</head>
+
+<body onload="loadDoc();">
+
+    <div class="container">
+        <div ng-app="myApp" ng-controller="myCtrl" class="ng-scope">
+        <form class="ng-pristine ng-valid">
+
+            <h1>College Debt Estimator</h1>
+            
+            <br>
+
+            <div class="row">      
+                <div class="col-lg-6">
+                    <div class="form-group">
+                    
+                        <h2>Loans</h2>
+
+                        <table class="table" id="loan_table">
+                            <tbody><tr>
+                                <th>Year</th>
+                                <th>Amount</th>
+                                <th>Int Rate<a target="_blank" href="https://studentaid.ed.gov/sa/types/loans/interest-rates"><sup>1</sup></a></th>
+                                <th>YE Bal</th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="form-control" placeholder="2020" id="loan_year01" style="background-color: white;"></td>
+                                <td><input type="text" class="form-control" placeholder="$10,000.00" id="loan_amt01"></td>
+                                <td><input type="text" class="form-control" placeholder="0.0453" id="loan_int01"></td>
+                                <td><span id="loan_bal01">$10,453.00</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="form-control" placeholder="2021" id="loan_year02" disabled="disabled" style="background-color: grey; color: white;"></td>
+                                <td><input type="text" class="form-control" placeholder="$10,000.00" id="loan_amt02"></td>
+                                <td><input type="text" class="form-control" placeholder="0.0453" id="loan_int02" disabled="disabled" style="background-color: grey; color: white;"></td>
+                                <td><span id="loan_bal02">$21,379.52</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="form-control" placeholder="2022" id="loan_year03" disabled="disabled" style="background-color: grey; color: white;"></td>
+                                <td><input type="text" class="form-control" placeholder="$10,000.00" id="loan_amt03"></td>
+                                <td><input type="text" class="form-control" placeholder="0.0453" id="loan_int03" disabled="disabled" style="background-color: grey; color: white;"></td>
+                                <td><span id="loan_bal03">$32,801.01</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="form-control" placeholder="2023" id="loan_year04" disabled="disabled" style="background-color: grey; color: white;"></td>
+                                <td><input type="text" class="form-control" placeholder="$10,000.00" id="loan_amt04"></td>
+                                <td><input type="text" class="form-control" placeholder="0.0453" id="loan_int04" disabled="disabled" style="background-color: grey; color: white;"></td>
+                                <td><span id="loan_bal04">$44,739.90</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="form-control" placeholder="2024" id="loan_year05" disabled="disabled" style="background-color: grey; color: white;"></td>
+                                <td><input type="text" class="form-control" placeholder="$10,000.00" id="loan_amt05"></td>
+                                <td><input type="text" class="form-control" placeholder="0.0453" id="loan_int05" disabled="disabled" style="background-color: grey; color: white;"></td>
+                                <td><span id="loan_bal05">$57,219.62</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Interest accrued while attending college:</td>
+                                <td><span id="loan_int_accrued">$7,219.62</span></td>
+                            </tr>
+                        </tbody></table>
+                        <br>
+                        <button type="button" class="btn btn-primary" ng-click="populate();">Re-calculate</button> 
+                        <button type="button" class="btn btn-secondary" onclick="saveForm();">Save</button>
+                        <button type="button" class="btn btn-secondary" onclick="loadForm();">Load</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <h2>Payments</h2>
+                            <table class="table">
+                                <tbody><tr>
+                                    <th>Year</th>
+                                    <th>Payments</th>
+                                    <th>Int Amt</th>
+                                    <th>YE Bal</th>
+                                </tr>
+                                <!-- ngRepeat: x in payments --><tr ng-repeat="x in payments" class="ng-scope">
+                                    <td class="ng-binding">2025</td>
+                                    <td class="ng-binding">$6,614.61</td>
+                                    <td class="ng-binding">$2,292.41</td>
+                                    <td class="ng-binding">$52,897.41</td>
+                                </tr><!-- end ngRepeat: x in payments --><tr ng-repeat="x in payments" class="ng-scope">
+                                    <td class="ng-binding">2026</td>
+                                    <td class="ng-binding">$6,614.61</td>
+                                    <td class="ng-binding">$2,096.61</td>
+                                    <td class="ng-binding">$48,379.41</td>
+                                </tr><!-- end ngRepeat: x in payments --><tr ng-repeat="x in payments" class="ng-scope">
+                                    <td class="ng-binding">2027</td>
+                                    <td class="ng-binding">$6,614.61</td>
+                                    <td class="ng-binding">$1,891.95</td>
+                                    <td class="ng-binding">$43,656.74</td>
+                                </tr><!-- end ngRepeat: x in payments --><tr ng-repeat="x in payments" class="ng-scope">
+                                    <td class="ng-binding">2028</td>
+                                    <td class="ng-binding">$6,614.61</td>
+                                    <td class="ng-binding">$1,678.01</td>
+                                    <td class="ng-binding">$38,720.14</td>
+                                </tr><!-- end ngRepeat: x in payments --><tr ng-repeat="x in payments" class="ng-scope">
+                                    <td class="ng-binding">2029</td>
+                                    <td class="ng-binding">$6,614.61</td>
+                                    <td class="ng-binding">$1,454.38</td>
+                                    <td class="ng-binding">$33,559.91</td>
+                                </tr><!-- end ngRepeat: x in payments --><tr ng-repeat="x in payments" class="ng-scope">
+                                    <td class="ng-binding">2030</td>
+                                    <td class="ng-binding">$6,614.61</td>
+                                    <td class="ng-binding">$1,220.62</td>
+                                    <td class="ng-binding">$28,165.92</td>
+                                </tr><!-- end ngRepeat: x in payments --><tr ng-repeat="x in payments" class="ng-scope">
+                                    <td class="ng-binding">2031</td>
+                                    <td class="ng-binding">$6,614.61</td>
+                                    <td class="ng-binding">$976.27</td>
+                                    <td class="ng-binding">$22,527.58</td>
+                                </tr><!-- end ngRepeat: x in payments --><tr ng-repeat="x in payments" class="ng-scope">
+                                    <td class="ng-binding">2032</td>
+                                    <td class="ng-binding">$6,614.61</td>
+                                    <td class="ng-binding">$720.86</td>
+                                    <td class="ng-binding">$16,633.83</td>
+                                </tr><!-- end ngRepeat: x in payments --><tr ng-repeat="x in payments" class="ng-scope">
+                                    <td class="ng-binding">2033</td>
+                                    <td class="ng-binding">$6,614.61</td>
+                                    <td class="ng-binding">$453.87</td>
+                                    <td class="ng-binding">$10,473.09</td>
+                                </tr><!-- end ngRepeat: x in payments --><tr ng-repeat="x in payments" class="ng-scope">
+                                    <td class="ng-binding">2034</td>
+                                    <td class="ng-binding">$6,614.61</td>
+                                    <td class="ng-binding">$174.79</td>
+                                    <td class="ng-binding">$4,033.27</td>
+                                </tr><!-- end ngRepeat: x in payments --><tr ng-repeat="x in payments" class="ng-scope">
+                                    <td class="ng-binding">2035</td>
+                                    <td class="ng-binding">$4,033.27</td>
+                                    <td class="ng-binding">$0.00</td>
+                                    <td class="ng-binding">$0.00</td>
+                                </tr><!-- end ngRepeat: x in payments -->
+                            </tbody></table>
+                        </div>
+                    </div>
+                </div>
+
+            </form></div>
+
+        
+
+    </div>
+
+<!--- jquery 3.4.1 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="./as06.js"></script>
+
+</body></html>
