@@ -1,17 +1,18 @@
 // --- global variables ---
-
+//This initiallizes a table for default use.
 var loans = [
     { loan_year: 2020, loan_amount: 10000.00, loan_int_rate: 0.0453 },
     { loan_year: 2021, loan_amount: 10000.00, loan_int_rate: 0.0453 },
     { loan_year: 2022, loan_amount: 10000.00, loan_int_rate: 0.0453 },
     { loan_year: 2023, loan_amount: 10000.00, loan_int_rate: 0.0453 },
     { loan_year: 2024, loan_amount: 10000.00, loan_int_rate: 0.0453 }
-  ]; 
+  ];
+//This initiallizes two more variables for use later on
   let loanWithInterest = 0;
   let int = 0;
   
   // --- function: loadDoc() ---
-  
+  //This function loads the page with defaults on starting up the page
   function loadDoc() {
     
     // pre-fill defaults for first loan year
@@ -51,7 +52,7 @@ var loans = [
     $("#loan_year01").focus();
 
   } // end: function loadDoc()
-  
+  //This function allows the page to update without reloading, the loop cycles through each row and replaces the data with updates related to the inputs changed
   let updateForm = () => {
     loanWithInterest = 0;
     let totalAmt = 0;
@@ -62,66 +63,67 @@ var loans = [
       totalAmt+= parseFloat(amt);
       $(`#loan_int0${i}`).val(loans[i-1].loan_int_rate);
       loanWithInterest = (loanWithInterest + parseFloat(amt)) * (1 + loans[0].loan_int_rate);
-
       $("#loan_bal0" + i).text(toMoney(loanWithInterest));
     }
     int = loanWithInterest-totalAmt;
     $(`#loan_int_accrued`).text(toMoney(int));
   }
-  
+  //This function makes sure the comma is in the proper spots on the numbers
   function toComma(value) {
       return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-
+//Initializes toMoney with a function that returns the function toComma
   let toMoney = (value) =>{
     return `\$${toComma(value.toFixed(2))}`;
   }
-  
+  //Checks if the input number to any point of the array is valid, it then updates the chart with the information
   function updateLoansArray() {
     let valid = true;
     let yearP = /^(19|20)\d{2}$/;
     let amtP = /^([1-9][0-9]*)+(.[0-9]{1,2})?$/;
     let intP = /^(0|)+(.[0-9]{1,5})?$/;
-
+    //This if checks if the 
     if(!yearP.test($(`#loan_year01`).val())){
       valid = false;
       $(`#loan_year01`).css("background-color", "red");
     }
-    
+    //This for cycles through all the numbers on the chart and checks if the amount number is allowed, if not it turns the icon red.
     for (i = 1; i < 6; i++) {
       if(!amtP.test($(`#loan_amt0${i}`).val())){
         valid = false;
         $(`#loan_amt0${i}`).css("background-color", "red");
       } 
     }
-
+    //This checks if the input loan value is allowed, if not it turns red.
     if(!intP.test($(`#loan_int01`).val())){
       valid = false;
       $(`#loan_int01`).css("background-color", "red");
     }
-
+//This if is what updates when the input numbers are valid is true.
     if(valid){
       loans[0].loan_year = parseInt($("#loan_year01").val());
       for(var i=1; i<5; i++) {
         loans[i].loan_year = loans[0].loan_year + i;
       }
+        //This loop updates all the loan amounts
       for(i = 1; i<6; i++){
         let amt = parseFloat($(`#loan_amt0${i}`).val()).toFixed(2);
         loans[i-1].loan_amount = amt;
       }
+        //This loop 
       let rate = parseFloat($("#loan_int01").val());
       for(i=0; i<5; i++){
         loans[i].loan_int_rate = rate;
       }
-
+      //This is what changes the form
       updateForm();
     }
   }
-
+//This saves the current chart as a string
  let saveForm = () => {
    localStorage.setItem(`as06`, JSON.stringify(loans));
  }
-
+//This takes the previous saved string and returns it to its chart form. It also pulls an error if their isn't one yet.
  let loadForm = () => {
   if(localStorage.getItem(`as06`) != null){
      loans = JSON.parse(localStorage.getItem(`as06`));
@@ -130,12 +132,13 @@ var loans = [
      alert(`Error: no saved values`);
   }
  }
-
+//This section initializes an angular, an array, and a function, which then updates the form 
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
   $scope.payments =[];
   $scope.populate = function () {
     updateForm();
+      //This is a ID block for all the loan data in order to compute the interest calculations.
     let total = loanWithInterest;
     let iRate = loans[0].loan_int_rate;
     let r = iRate / 12;
