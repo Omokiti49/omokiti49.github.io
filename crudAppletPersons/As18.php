@@ -2,38 +2,47 @@
 
 function main () {
 	
-	$apiCall = 'https://api.covid19api.com/summary';
-	// line below stopped working on CSIS server
-	// $json_string = file_get_contents($apiCall); 
+	$apiCall = 'https://omokiti49.github.io/crudAppletPersons/jsonFile.html';
 	$json_string = curl_get_contents($apiCall);
 	$obj = json_decode($json_string);
-	$data = $obj->Global->NewConfirmed;
+	
+	$death_arr = Array();
+	foreach($obj->Countries as $i){
+		echo = $i->Country . " : "
+			. $i->TotalDeaths
+			. "<br>";
+	}
+	/*foreach($obj->Countries as $i){
+		$data = $obj->Countries[$i]->Country . " : "
+			. $obj->Countries[$i]->TotalDeaths;
+	}
 
+		echo $data . " <br><br> ";*/
 	// echo html head section
-	echo '<html>';
-	echo '<head>';
-	echo '	<link rel="icon" href="img/cardinal_logo.png" type="image/png" />';
-	echo '</head>';
+	//echo '<html>';
+	//echo '<head>';
+	//echo '	<link rel="icon" href="img/cardinal_logo.png" type="image/png" />';
+	//echo '</head>';
 	
 	// open html body section
-	echo '<body onload="loadDoc()">';
+	//echo '<body onload="loadDoc()">';
 	
-	echo '<div>';
-	$myObjString = '{"newCases1":' . $data . '}' ;
-	echo $myObjString;
-	echo '</div>';
+	//echo '<div>';
+	//$myObjString = '{"newCases1":' . $data . '}' ;
+	//echo $myObjString;
+	//echo '</div>';
 	
-	echo '<div>';
-	$myArray = array("newCases2"=>$data) ;
+	//echo '<div>';
+	//$myArray = array("newCases2"=>$data) ;
 	// $myArray = array("newCases2"=>array("A"=>1, "B"=>2)) ;
-	echo json_encode($myArray);
-	echo '</div>';
+	//echo json_encode($myArray);
+	//echo '</div>';
 	
-	echo '<div id="demo">';
-	echo '</div>';
-	echo '<script>';
-	echo '
-		var country_usa;
+	//echo '<div id="demo">';
+	//echo '</div>';
+	//echo '<script>';
+	//echo '
+	/*	var country_usa;
 		function loadDoc() {
 		  var xhttp = new XMLHttpRequest();
 		  xhttp.onreadystatechange = function() {
@@ -53,7 +62,7 @@ function main () {
 	// close html body section
 	echo '</body>';
 	echo '</html>';
-}
+}*/
 
 
 #-----------------------------------------------------------------------------
