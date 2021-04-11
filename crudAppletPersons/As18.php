@@ -1,5 +1,6 @@
 <?php 
 	echo "<a target='_blank' href='https://omokiti49.github.io/crudAppletPersons/jsonFile.html'> GitHub repo</a> <br>"
+		main();
 function main () {
 	
 	$apiCall = 'https://api.covid19api.com/summary';
@@ -12,7 +13,7 @@ function main () {
 		array_push($death_arr, $i->Country);
 		array_push($arr2, $i->$i->TotalDeaths);	
 	}
-		array_multisort($arr2 SORT_ASC, $death_arr);
+		array_multisort($arr2, SORT_ASC, $death_arr);
 		print_r($death_arr);
 
 #-----------------------------------------------------------------------------
