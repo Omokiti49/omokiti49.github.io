@@ -12,7 +12,7 @@ function main () {
 		array_push($death_arr, $i->Country);
 		array_push($arr2, $i->$i->TotalDeaths);	
 	}
-		array_multisort($arr2, $death_arr);
+		array_multisort($arr2 SORT_ASC, $death_arr);
 		print_r($death_arr);
 
 #-----------------------------------------------------------------------------
