@@ -11,9 +11,7 @@
 var country_usa;
 var country_1;
 var deathArray = Array();
-	for(var i = 0; i < 10; i++){
-		deathArrray[i] = JSON.parse(this.responseText)..TotalDeaths;
-	}
+
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -21,7 +19,9 @@ function loadDoc() {
 	  country_usa = JSON.parse(this.responseText).Global.TotalDeaths;
 	  country_1 = JSON.parse(this.responseText).Countries[0].Country;
       document.getElementById("demo").innerHTML = country_usa;
-	 
+	 	for(var i = 0; i < 10; i++){
+		deathArrray[i] = JSON.parse(this.responseText)..TotalDeaths;
+	}
     }
   };
   var api = "https://api.covid19api.com/summary";
