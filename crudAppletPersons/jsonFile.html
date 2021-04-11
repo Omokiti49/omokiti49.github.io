@@ -31,10 +31,3 @@ function loadDoc() {
 </script>
 
 </body>
-<php?
-function main(){
-      $apiCall = 'https://api.covid19api.com/summary';
-      $json_string = curl_get_contents($apiCall);
-      $obj = json_decode($json_string);
-      $data = $obj->Countries[]->Country . " : "
-	. $ obj->Countries[]->TotalDeaths;
