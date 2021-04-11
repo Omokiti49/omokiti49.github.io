@@ -8,13 +8,15 @@ function main () {
 	
 	$death_arr = Array();
 	foreach($obj->Countries as $i){
+		array_push[$i->Country, $i->TotalDeaths])
+		/*$data = $obj->Countries[$i]->Country . " : "
+			. $obj->Countries[$i]->TotalDeaths;
 		echo = $i->Country . " : "
 			. $i->TotalDeaths
-			. "<br>";
+			. "<br>";*/
 	}
 	/*foreach($obj->Countries as $i){
-		$data = $obj->Countries[$i]->Country . " : "
-			. $obj->Countries[$i]->TotalDeaths;
+
 	}
 
 		echo $data . " <br><br> ";*/
