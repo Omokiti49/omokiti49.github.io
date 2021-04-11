@@ -10,11 +10,15 @@
 <script>
 var country_usa;
 var country_1;
+var deathArray = Array();
+	for(var i = 0; i < 10; i++){
+		deathArrray[i] = JSON.parse(this.responseText)..TotalDeaths;
+	}
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-	  country_usa = JSON.parse(this.responseText).Global.NewConfirmed;
+	  country_usa = JSON.parse(this.responseText).Global.TotalDeaths;
 	  country_1 = JSON.parse(this.responseText).Countries[0].Country;
       document.getElementById("demo").innerHTML = country_usa;
 	 
@@ -27,3 +31,10 @@ function loadDoc() {
 </script>
 
 </body>
+<php?
+function main(){
+      $apiCall = 'https://api.covid19api.com/summary';
+      $json_string = curl_get_contents($apiCall);
+      $obj = json_decode($json_string);
+      $data = $obj->Countries[]->Country . " : "
+	. $ obj->Countries[]->TotalDeaths;
