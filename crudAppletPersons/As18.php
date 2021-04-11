@@ -1,8 +1,8 @@
 <?php 
-
+	echo "<a target='_blank' href='https://omokiti49.github.io/crudAppletPersons/jsonFile.html'> GitHub repo</a> <br>"
 function main () {
 	
-	$apiCall = 'https://omokiti49.github.io/crudAppletPersons/jsonFile.html';
+	$apiCall = 'https://api.covid19api.com/summary';
 	$json_string = curl_get_contents($apiCall);
 	$obj = json_decode($json_string);
 	
